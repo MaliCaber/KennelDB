@@ -16,7 +16,9 @@ namespace KennelDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            LoginPage LoginPage = new LoginPage();
+            LoginPage.Show();
+            Application.Run();
         }
     }
 }
