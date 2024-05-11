@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/____PROGRAMIRANJE____/VISUAL_STUDIO_SOURCES/KennelDB/KennelDB/KennelDB.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5268"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,11:mainDogPedigree"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- Create the DogPedigree table
+CREATE TABLE DogPedigree (
+    DogID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for the dog
+    Name TEXT,                               -- Dog's name
+    RegistrationNumber TEXT UNIQUE,           -- Unique identifier assigned by the kennel club
+    Breed TEXT,                              -- Breed of the dog
+    DateOfBirth DATE,                        -- Dog's birthdate
+    CoatType TEXT,                           -- Coat type or fur type (e.g., &quot;Short,&quot; &quot;Long,&quot; &quot;Wirehaired&quot;)
+    Color TEXT,                              -- Color of the dog's coat
+    Markings TEXT,                           -- Markings on the dog's coat
+    Sex TEXT CHECK (Sex IN ('Male', 'Female')),  -- Gender of the dog
+    SireID INTEGER,                          -- Foreign key for the sire's DogID (allows NULL)
+    DamID INTEGER,                           -- Foreign key for the dam's DogID (allows NULL)
+    SireName TEXT,                          -- Sire's name
+    DamName TEXT,                           -- Dam's name
+    BreederName TEXT,                       -- Breeder's name
+    DateOfRegistration DATE,                -- Date of registration
+    MicrochipTattooID TEXT,                 -- Microchip or tattoo ID
+    KennelClub TEXT                        -- Kennel club responsible for registration
+);
+
+-- Create the Owners table
+CREATE TABLE Owners (
+    OwnerID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for the owner
+    OwnerName TEXT                           -- Owner's name
+);
+
+-- Create the DogOwner table
+CREATE TABLE DogOwner (
+    DogID INTEGER,
+    OwnerID INTEGER,
+    OwnershipStartDate DATE,               -- Start date of ownership
+    OwnershipEndDate DATE,                 -- End date of ownership (if applicable)
+    PRIMARY KEY (DogID, OwnerID),
+    FOREIGN KEY (DogID) REFERENCES DogPedigree(DogID),
+    FOREIGN KEY (OwnerID) REFERENCES Owners(OwnerID)
+);
+
+-- Create the Titles table
+CREATE TABLE Titles (
+    TitleID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for a title
+    DogID INTEGER,
+    TitleName TEXT,                        -- Name of the title
+    TitleDate DATE,                        -- Date when the title was achieved
+    FOREIGN KEY (DogID) REFERENCES DogPedigree(DogID)
+);
+
+-- Create the Awards table
+CREATE TABLE Awards (
+    AwardID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for an award
+    DogID INTEGER,
+    AwardName TEXT,                        -- Name of the award
+    AwardDate DATE,                        -- Date when the award was received
+    FOREIGN KEY (DogID) REFERENCES DogPedigree(DogID)
+);
+
+-- Create the Vaccinations table
+CREATE TABLE Vaccinations (
+    VaccinationID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for a vaccination
+    DogID INTEGER,
+    VaccineName TEXT,                     -- Name of the vaccine
+    VaccinationDate DATE,                 -- Date of vaccination
+    FOREIGN KEY (DogID) REFERENCES DogPedigree(DogID)
+);
+
+-- Create the Litters table
+CREATE TABLE Litters (
+    LitterID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for a litter
+    DamID INTEGER,                          -- Foreign key for the dam's DogID
+    SireID INTEGER,                         -- Foreign key for the sire's DogID
+    LitterDate DATE,                       -- Date when the litter was born
+    NumberPuppies INTEGER,                 -- Number of puppies in the litter
+    DamName TEXT,                         -- Dam's name
+    SireName TEXT,                        -- Sire's name
+    FOREIGN KEY (DamID) REFERENCES DogPedigree(DogID),
+    FOREIGN KEY (SireID) REFERENCES DogPedigree(DogID)
+);
+
+-- Create the VaccinationsLitter table
+CREATE TABLE VaccinationsLitter (
+    VaccinationID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for a litter vaccination
+    LitterID INTEGER,                         -- Foreign key for the litter's LitterID
+    VaccineName TEXT,                        -- Name of the vaccine
+    VaccinationDate DATE,                    -- Date of vaccination
+    FOREIGN KEY (LitterID) REFERENCES Litters(LitterID)
+);
+
+-- Create the Pregnancy table
+CREATE TABLE Pregnancy (
+    PregnancyID INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for a pregnancy record
+    DamID INTEGER,                              -- Foreign key for the dam's DogID
+    SireID INTEGER,                             -- Foreign key for the sire's DogID
+    PregnancyStartDate DATE,                   -- Date when the pregnancy started
+    PregnancyEndDate DATE,                     -- Date when the pregnancy ended (if applicable)
+    DamName TEXT,                              -- Dam's name
+    SireName TEXT,                             -- Sire's name
+    FOREIGN KEY (DamID) REFERENCES DogPedigree(DogID),
+    FOREIGN KEY (SireID) REFERENCES DogPedigree(DogID)
+);</sql><current_tab id="0"/></tab_sql></sqlb_project>
