@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.tabAddDog = new System.Windows.Forms.TabPage();
+            this.btnAddVaccines = new MaterialSkin.Controls.MaterialButton();
+            this.listbVaccines = new System.Windows.Forms.ListBox();
+            this.materialLabel31 = new MaterialSkin.Controls.MaterialLabel();
             this.cblOwners = new System.Windows.Forms.CheckedListBox();
             this.btnAddOwnersToListOfOwners = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
@@ -64,6 +67,8 @@
             this.tbRN = new MaterialSkin.Controls.MaterialTextBox2();
             this.tcMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
+            this.listbHVaccines = new System.Windows.Forms.ListBox();
+            this.materialLabel32 = new MaterialSkin.Controls.MaterialLabel();
             this.listbSearch = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -101,11 +106,6 @@
             this.materialLabel30 = new MaterialSkin.Controls.MaterialLabel();
             this.tbHRN = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.materialLabel31 = new MaterialSkin.Controls.MaterialLabel();
-            this.listbVaccines = new System.Windows.Forms.ListBox();
-            this.btnAddVaccines = new MaterialSkin.Controls.MaterialButton();
-            this.listbHVaccines = new System.Windows.Forms.ListBox();
-            this.materialLabel32 = new MaterialSkin.Controls.MaterialLabel();
             this.tabAddDog.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tabHome.SuspendLayout();
@@ -156,6 +156,47 @@
             this.tabAddDog.TabIndex = 1;
             this.tabAddDog.Text = "Add Dog";
             this.tabAddDog.UseVisualStyleBackColor = true;
+            // 
+            // btnAddVaccines
+            // 
+            this.btnAddVaccines.AutoSize = false;
+            this.btnAddVaccines.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAddVaccines.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAddVaccines.Depth = 0;
+            this.btnAddVaccines.HighEmphasis = true;
+            this.btnAddVaccines.Icon = null;
+            this.btnAddVaccines.Location = new System.Drawing.Point(779, 424);
+            this.btnAddVaccines.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAddVaccines.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAddVaccines.Name = "btnAddVaccines";
+            this.btnAddVaccines.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAddVaccines.Size = new System.Drawing.Size(20, 21);
+            this.btnAddVaccines.TabIndex = 38;
+            this.btnAddVaccines.Text = "+";
+            this.btnAddVaccines.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAddVaccines.UseAccentColor = false;
+            this.btnAddVaccines.UseVisualStyleBackColor = true;
+            this.btnAddVaccines.Click += new System.EventHandler(this.btnAddVaccines_Click_1);
+            // 
+            // listbVaccines
+            // 
+            this.listbVaccines.FormattingEnabled = true;
+            this.listbVaccines.Location = new System.Drawing.Point(522, 337);
+            this.listbVaccines.Name = "listbVaccines";
+            this.listbVaccines.Size = new System.Drawing.Size(250, 108);
+            this.listbVaccines.TabIndex = 37;
+            // 
+            // materialLabel31
+            // 
+            this.materialLabel31.AutoSize = true;
+            this.materialLabel31.Depth = 0;
+            this.materialLabel31.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel31.Location = new System.Drawing.Point(407, 345);
+            this.materialLabel31.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel31.Name = "materialLabel31";
+            this.materialLabel31.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel31.TabIndex = 36;
+            this.materialLabel31.Text = "Vaccines:";
             // 
             // cblOwners
             // 
@@ -802,6 +843,26 @@
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
+            // listbHVaccines
+            // 
+            this.listbHVaccines.FormattingEnabled = true;
+            this.listbHVaccines.Location = new System.Drawing.Point(522, 395);
+            this.listbHVaccines.Name = "listbHVaccines";
+            this.listbHVaccines.Size = new System.Drawing.Size(250, 108);
+            this.listbHVaccines.TabIndex = 74;
+            // 
+            // materialLabel32
+            // 
+            this.materialLabel32.AutoSize = true;
+            this.materialLabel32.Depth = 0;
+            this.materialLabel32.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel32.Location = new System.Drawing.Point(407, 403);
+            this.materialLabel32.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel32.Name = "materialLabel32";
+            this.materialLabel32.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel32.TabIndex = 73;
+            this.materialLabel32.Text = "Vaccines:";
+            // 
             // listbSearch
             // 
             this.listbSearch.FormattingEnabled = true;
@@ -1422,66 +1483,6 @@
             this.materialTabSelector1.Name = "materialTabSelector1";
             this.materialTabSelector1.Size = new System.Drawing.Size(1280, 48);
             this.materialTabSelector1.TabIndex = 1;
-            // 
-            // materialLabel31
-            // 
-            this.materialLabel31.AutoSize = true;
-            this.materialLabel31.Depth = 0;
-            this.materialLabel31.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel31.Location = new System.Drawing.Point(407, 345);
-            this.materialLabel31.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel31.Name = "materialLabel31";
-            this.materialLabel31.Size = new System.Drawing.Size(69, 19);
-            this.materialLabel31.TabIndex = 36;
-            this.materialLabel31.Text = "Vaccines:";
-            // 
-            // listbVaccines
-            // 
-            this.listbVaccines.FormattingEnabled = true;
-            this.listbVaccines.Location = new System.Drawing.Point(522, 337);
-            this.listbVaccines.Name = "listbVaccines";
-            this.listbVaccines.Size = new System.Drawing.Size(250, 108);
-            this.listbVaccines.TabIndex = 37;
-            // 
-            // btnAddVaccines
-            // 
-            this.btnAddVaccines.AutoSize = false;
-            this.btnAddVaccines.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddVaccines.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAddVaccines.Depth = 0;
-            this.btnAddVaccines.HighEmphasis = true;
-            this.btnAddVaccines.Icon = null;
-            this.btnAddVaccines.Location = new System.Drawing.Point(779, 424);
-            this.btnAddVaccines.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAddVaccines.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddVaccines.Name = "btnAddVaccines";
-            this.btnAddVaccines.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAddVaccines.Size = new System.Drawing.Size(20, 21);
-            this.btnAddVaccines.TabIndex = 38;
-            this.btnAddVaccines.Text = "+";
-            this.btnAddVaccines.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAddVaccines.UseAccentColor = false;
-            this.btnAddVaccines.UseVisualStyleBackColor = true;
-            // 
-            // listbHVaccines
-            // 
-            this.listbHVaccines.FormattingEnabled = true;
-            this.listbHVaccines.Location = new System.Drawing.Point(522, 395);
-            this.listbHVaccines.Name = "listbHVaccines";
-            this.listbHVaccines.Size = new System.Drawing.Size(250, 108);
-            this.listbHVaccines.TabIndex = 74;
-            // 
-            // materialLabel32
-            // 
-            this.materialLabel32.AutoSize = true;
-            this.materialLabel32.Depth = 0;
-            this.materialLabel32.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel32.Location = new System.Drawing.Point(407, 403);
-            this.materialLabel32.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel32.Name = "materialLabel32";
-            this.materialLabel32.Size = new System.Drawing.Size(69, 19);
-            this.materialLabel32.TabIndex = 73;
-            this.materialLabel32.Text = "Vaccines:";
             // 
             // Home
             // 

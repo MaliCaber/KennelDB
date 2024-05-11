@@ -534,7 +534,7 @@ namespace KennelDB
             listbVaccines.Items.Add(vaccine);
         }
 
-        private void btnAddVaccines_Click(object sender, EventArgs e)
+        private void btnAddVaccines_Click_1(object sender, EventArgs e)
         {
             AddVaccineToListForm addVaccineToListForm = new AddVaccineToListForm(this);
             addVaccineToListForm.Show();
