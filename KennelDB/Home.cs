@@ -294,6 +294,7 @@ namespace KennelDB
 
                 EraseDataFromAddDog();
                 MessageBox.Show("Dog pedigree added successfully.");
+                LoadListBoxData();
             }
             catch (Exception ex)
             {
